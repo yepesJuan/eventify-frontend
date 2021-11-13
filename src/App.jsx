@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 import Home from "./Scenes/Home";
 import { initializeApp } from "firebase/app";
 
@@ -18,11 +19,11 @@ function App() {
   return (
     <>
       <Router>
-        <UserContextProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </UserContextProvider>
+        {/* <UserContextProvider> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+        {/* </UserContextProvider> */}
       </Router>
     </>
   );

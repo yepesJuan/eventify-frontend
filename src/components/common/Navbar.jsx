@@ -1,5 +1,16 @@
 import React from "react";
-import { Nav, NavbarContainer, NavLogo } from "./NavbarStyle";
+import { FaBars } from "react-icons/fa";
+import {
+  Nav,
+  NavbarContainer,
+  NavLogo,
+  MobilIcon,
+  NavMenu,
+  NavItem,
+  NavLinks,
+  NavBtn,
+  NavBntLink,
+} from "./NavbarCss";
 
 const Navbar = () => {
   return (
@@ -7,14 +18,23 @@ const Navbar = () => {
       <Nav>
         <NavbarContainer>
           <NavLogo to="/">Eventify</NavLogo>
-          {/* <MobilIcon>
+          <MobilIcon>
             <FaBars />
           </MobilIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="About">About</NavLinks>
+              <NavLinks to="about">About</NavLinks>
             </NavItem>
-          </NavMenu> */}
+            <NavItem>
+              <NavLinks to="events">Events</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="signup">Sign Up</NavLinks>
+            </NavItem>
+          </NavMenu>
+          <NavBtn>
+            <NavBntLink to="/signin">Sign In</NavBntLink>
+          </NavBtn>
         </NavbarContainer>
       </Nav>
     </>
