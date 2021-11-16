@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Scenes/Home";
 import { initializeApp } from "firebase/app";
+import EventList from "./Scenes/EventList";
+import CreateEvent from "./Scenes/CreateEvent";
+import SingleEvent from "./Scenes/SingleEvent";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7qTfZGX67qR8d367EylcrqznFQfx8v8",
@@ -22,6 +25,9 @@ function App() {
         {/* <UserContextProvider> */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/eventList" element={<EventList />} />
+          <Route path="/createEvent" element={<CreateEvent />} />
+          <Route path="/singleEvent" element={<SingleEvent />} />
         </Routes>
         {/* </UserContextProvider> */}
       </Router>
