@@ -5,6 +5,9 @@ import { initializeApp } from "firebase/app";
 import EventList from "./Scenes/EventList";
 import CreateEvent from "./Scenes/CreateEvent";
 import SingleEvent from "./Scenes/SingleEvent";
+import { UserContextProvider } from "./context/UserContext";
+import Login from "./Scenes/Login";
+import SignUp from "./Scenes/SignUp";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs7qTfZGX67qR8d367EylcrqznFQfx8v8",
@@ -22,14 +25,16 @@ function App() {
   return (
     <>
       <Router>
-        {/* <UserContextProvider> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/eventList" element={<EventList />} />
-          <Route path="/createEvent" element={<CreateEvent />} />
-          <Route path="/singleEvent" element={<SingleEvent />} />
-        </Routes>
-        {/* </UserContextProvider> */}
+        <UserContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/eventList" element={<EventList />} />
+            <Route path="/createEvent" element={<CreateEvent />} />
+            <Route path="/eventList/:eventId" element={<SingleEvent />} />
+          </Routes>
+        </UserContextProvider>
       </Router>
     </>
   );

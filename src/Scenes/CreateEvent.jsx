@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createEvent } from "../Service/eventServices";
 import { TextField, Button } from "@mui/material";
 import { Box, Typography, Modal } from "@mui/material";
-import NavbarCreate from "../components/common/NavbarCreate";
+import NavbarCreate from "../components/common/navbars/NavbarCreate";
 
 const style = {
   position: "absolute",

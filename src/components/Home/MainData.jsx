@@ -1,0 +1,16 @@
+export const homeObjectOne = {
+  id: "about",
+  lightBg: false,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: "Events",
+  headline: "Plays with friends today broooooooooooo",
+  description: "All day long baby lets goooo!!!",
+  buttonLabel: "Get Started",
+  imgStart: true,
+  img: "images/baseball.svg",
+  alt: "soccer1",
+  dark: true,
+  primary: true,
+  darkText: false,
+};
