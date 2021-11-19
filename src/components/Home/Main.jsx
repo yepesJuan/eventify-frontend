@@ -44,7 +44,6 @@ const Main = ({
                 <BtnWrap>
                   <Btn
                     onClick={() => navigate("/signup")}
-                    to="/signup"
                     smooth={true}
                     duration={500}
                     spy={true}

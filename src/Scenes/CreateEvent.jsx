@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { createEvent } from "../Service/eventServices";
 import { TextField, Button } from "@mui/material";
 import { Box, Typography, Modal } from "@mui/material";
 import NavbarCreate from "../components/common/navbars/NavbarCreate";
+import { UserContext } from "../context/UserContext";
+import { getIdToken } from "@firebase/auth";
 
 const style = {
   position: "absolute",
@@ -25,18 +27,17 @@ const CreateEvent = () => {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [open, setOpen] = useState(false);
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleForm = async (e) => {
     e.preventDefault();
-    try {
-      await createEvent({ name, sport, capacity, address, date, description });
-      handleOpen();
-    } catch (err) {
-      alert(err);
-    }
+    getIdToken(user).then((jwt) =>
+      createEvent({ name, sport, capacity, address, date, description }, jwt)
+    );
+    handleOpen();
   };
 
   return (

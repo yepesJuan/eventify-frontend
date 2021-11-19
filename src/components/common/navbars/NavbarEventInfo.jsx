@@ -22,7 +22,7 @@ const NavbarCreate = () => {
           </MobilIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="">Event Info</NavLinks>
+              <NavLinks to="/">Event Info</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>

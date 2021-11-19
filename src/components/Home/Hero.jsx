@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { Btn } from "../common/ButtonCss";
 import {
   HeroContainer,
@@ -14,6 +15,7 @@ import Video from "../../videos/video.mp4";
 
 const Hero = () => {
   const [hover, setHover] = useState(false);
+  const navigate = useNavigate();
 
   const onHover = () => {
     setHover(!hover);
@@ -25,9 +27,13 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1>Events Made Easy</HeroH1>
-        <HeroP>Sign up today to create or join an event! </HeroP>
+        <HeroP>Sign up today to create or join an event!</HeroP>
         <HeroBtnWrapper>
-          <Btn to="/signup" onMouseEnter={onHover} onMouseLeave={onHover}>
+          <Btn
+            onClick={() => navigate("/eventlist")}
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}
+          >
             Get Started {<ArrowRight />}
           </Btn>
         </HeroBtnWrapper>

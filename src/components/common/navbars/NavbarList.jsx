@@ -22,7 +22,7 @@ const NavbarList = () => {
           </MobilIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="">Events</NavLinks>
+              <NavLinks to="/">Events</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>
