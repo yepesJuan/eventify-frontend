@@ -1,5 +1,5 @@
-import React from "react";
 import { FaBars } from "react-icons/fa";
+import { scroll } from "react-scroll";
 import {
   Nav,
   NavbarContainer,
@@ -13,23 +13,59 @@ import {
 } from "./NavbarCss";
 
 const Navbar = ({ toggle }) => {
+  const toggleHome = () => {
+    scroll.scrollToTop(0);
+  };
+
   return (
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">Eventify</NavLogo>
+          <NavLogo to="/" onClick={toggleHome}>
+            Eventify
+          </NavLogo>
           <MobilIcon onClick={toggle}>
             <FaBars />
           </MobilIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="/about">About</NavLinks>
+              <NavLinks
+                to="events"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-15}
+                active
+              >
+                Events
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="/events">Events</NavLinks>
+              <NavLinks
+                to="signup"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-15}
+                active
+              >
+                Sign Up
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="/">Sign Up</NavLinks>
+              <NavLinks
+                to="footer"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-15}
+                active
+              >
+                About
+              </NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>

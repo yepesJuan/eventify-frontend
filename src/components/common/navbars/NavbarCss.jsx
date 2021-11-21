@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   background: #000;
   width: initial;
   height: 80px;
-  margin-top: -10px;
+  margin-top: -15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +54,11 @@ export const MobilIcon = styled.div`
     font-size: 1.8rem;
     color: white;
     cursor: pointer;
+
+    &:hover {
+      color: #145ff5;
+      transition: 0.2s ease-in-out;
+    }
   }
 `;
 export const NavMenu = styled.ul`
@@ -79,8 +84,8 @@ export const NavLinks = styled(LinkScroll)`
   height: 100%;
   cursor: pointer;
 
-  &:hover {
-    border-bottom: 3px solid #022697;
+  &:active {
+    border-bottom: 3px solid #145ff5;
   }
 `;
 
@@ -95,7 +100,7 @@ export const NavBtn = styled.nav`
 
 export const NavBntLink = styled(LinkRouter)`
   border-radius: 50px;
-  background: #022697;
+  background: #145ff5;
   white-space: nowrap;
   padding: 10px 22px;
   color: white;

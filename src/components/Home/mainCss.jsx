@@ -11,22 +11,25 @@ export const MainContainer = styled.div`
 export const MainWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 860px;
-  width: 100%;
+  height: 800px;
   width: 1100px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    margin-left: -200px;
+  }
 `;
 export const MainRow = styled.div`
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
   grid-template-areas: ${({ imgStart }) =>
-    imgStart ? `'col2 col1'` : `col1 col2`};
+    imgStart ? `'col2 col1'` : `'col1 col2'`};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
   }
@@ -48,8 +51,8 @@ export const TextWrapper = styled.div`
   padding-bottom: 60px;
 `;
 export const TopLine = styled.p`
-  color: #01bf71;
-  font-size: 16px;
+  color: #145ff5;
+  font-size: 20px;
   line-height: 16px;
   font-weight: 700;
   letter-spacing: 1.4px;
@@ -58,7 +61,7 @@ export const TopLine = styled.p`
 `;
 export const Heading = styled.h1`
   margin-bottom: 24px;
-  font-size: 42px;
+  font-size: 35px;
   line-height: 1.1;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#145ff5" : "#fff")};
@@ -67,7 +70,7 @@ export const Heading = styled.h1`
     font-size: 32px;
   }
   @media screen and (max-width: 420px) {
-    font-size: 28px;
+    font-size: 25px;
   }
 `;
 

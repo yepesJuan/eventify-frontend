@@ -4,7 +4,7 @@ import Hero from "../components/Home/Hero";
 import Footer from "../components/common/Footer";
 import Sidebar from "../components/common/navbars/Sidebar";
 import Main from "../components/Home/Main";
-import { homeObjectOne } from "../components/Home/MainData";
+import { homeObjectOne, homeObjectTwo } from "../components/Home/MainData";
 
 export default function Home() {
   const [isOpen, setIsOPen] = useState(false);
@@ -18,6 +18,7 @@ export default function Home() {
       <Navbar toggle={toggle} />
       <Hero />
       <Main {...homeObjectOne} />
+      <Main {...homeObjectTwo} />
       <Footer />
     </>
   );

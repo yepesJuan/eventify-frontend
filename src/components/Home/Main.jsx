@@ -43,7 +43,7 @@ const Main = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Btn
-                    onClick={() => navigate("/signup")}
+                    onClick={() => navigate("/eventlist")}
                     smooth={true}
                     duration={500}
                     spy={true}
