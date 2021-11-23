@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { createEvent } from "../Service/eventServices";
 import { TextField, Button } from "@mui/material";
@@ -12,9 +12,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 375,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "3px solid #145ff5",
   boxShadow: 24,
   p: 4,
 };
@@ -31,6 +31,7 @@ const CreateEvent = () => {
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  // const [data, setData] = useState({});
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -39,6 +40,8 @@ const CreateEvent = () => {
     );
     handleOpen();
   };
+
+  // const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
   return (
     <>
@@ -50,6 +53,7 @@ const CreateEvent = () => {
             id="outlined-basic"
             label="Name of Event"
             variant="outlined"
+            name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -109,16 +113,16 @@ const CreateEvent = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Event added!
+              <Typography id="modal-modal-title" variant="body1" component="h2">
+                Event Created!
               </Typography>
               <Button
-                color="secondary"
+                color="primary"
                 variant="contained"
                 style={{ color: "white" }}
                 onClick={() => navigate(`/eventList`)}
               >
-                Go back to event list
+                Go Back to Events
               </Button>
             </Box>
           </Modal>

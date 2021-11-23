@@ -1,5 +1,3 @@
-import React from "react";
-
 import { FaGithub, FaLinkedin, FaSchool } from "react-icons/fa";
 import {
   FooterContainer,
@@ -75,7 +73,7 @@ const Footer = () => {
                 <FaLinkedin />
               </SocialIconLink>
               <SocialIconLink
-                href="//www.bocacode.com/candidates"
+                href="//www.bocacode.com/candidates/software-engineer/juan-yepes"
                 target="_blank"
                 arial-label="School"
               >

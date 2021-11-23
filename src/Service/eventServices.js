@@ -16,6 +16,17 @@ export const createEvent = async (data, jwt) => {
   });
   return result;
 };
+
+export const addMember = async (eventId, jwt) => {
+  const result = await axios.post(
+    `http://localhost:5000/events/addmember/${eventId}`,
+    {},
+    {
+      headers: { Authorization: jwt },
+    }
+  );
+  return result;
+};
 export const deleteEvent = async () => {
   await axios.delete("http://localhost:5000/events");
 };
