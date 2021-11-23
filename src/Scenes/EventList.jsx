@@ -4,7 +4,7 @@ import { getAllEvents } from "../Service/eventServices";
 import NavbarList from "../components/common/navbars/NavbarList";
 import Footer from "../components/common/Footer";
 import { CardActions, CardContent, Card } from "@mui/material/";
-import { Typography, Button, Grid, Pagination } from "@mui/material";
+import { Typography, Button, Grid } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
 import { SingleContainer, ListWrap } from "./SingleCss";
 // import CardMedia from "@mui/material/CardMedia";

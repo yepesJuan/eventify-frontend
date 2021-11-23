@@ -13,6 +13,19 @@ export const SingleWrap = styled.div`
   margin: 0 auto;
 `;
 
+export const CreateContainer = styled.footer`
+  background-color: #145ff5;
+`;
+export const CreateWrap = styled.div`
+  padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  height: 600px;
+  margin: 0 auto;
+`;
+
 export const ListWrap = styled.div`
   padding: 10px 20px;
   display: flex;

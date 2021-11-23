@@ -25,6 +25,8 @@ const style = {
 
 export default function SingleEvent() {
   const [event, setEvent] = useState([]);
+  const [spots, setSpots] = useState(0);
+  const [canJoin, setCanJoin] = useState(false);
   const { eventId } = useParams();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -41,6 +43,16 @@ export default function SingleEvent() {
     // }
   }, [eventId, user]);
 
+  useEffect(() => {
+    const _canJoin =
+      event &&
+      user &&
+      user.uid &&
+      (!event.userlist || !event.userlist.includes(user.uid));
+    console.log({ _canJoin, event, user });
+    setCanJoin(_canJoin);
+  }, [event, user]);
+
   const handleAddMember = async () => {
     const jwt = await getIdToken(user);
     await addMember(eventId, jwt);
@@ -52,7 +64,7 @@ export default function SingleEvent() {
       <NavbarEventInfo />
       <SingleContainer>
         <SingleWrap>
-          <Card style={{ width: "400px", height: "350px" }} key={event._id}>
+          <Card style={{ width: "420px", height: "450px" }} key={event._id}>
             {/* <CardMedia
                 // component="img"
                 // height="140"
@@ -60,7 +72,7 @@ export default function SingleEvent() {
                 // alt="green iguana"
                 /> */}
             <CardContent>
-              <h2 style={{ padding: "8px 65px" }}>{event.name}</h2>
+              <h2 style={{ padding: "8px 60px" }}>{event.name}</h2>
               <FieldsWrap>Sport </FieldsWrap>
               <Typography>{event.sport}</Typography>
               <FieldsWrap>Capacity </FieldsWrap>
@@ -68,17 +80,28 @@ export default function SingleEvent() {
                 <GroupsIcon></GroupsIcon>
                 <span style={{ paddingLeft: "5px" }}>{event.capacity}</span>
               </Typography>
+              <FieldsWrap>Spots Left </FieldsWrap>
+              {event && (
+                <Typography>
+                  {Number(event.capacity) - event?.userlist?.length} out of{" "}
+                  {event.capacity}
+                </Typography>
+              )}
               <FieldsWrap>Location </FieldsWrap>
               <Typography>{event.address}</Typography>
-              <FieldsWrap>Date: </FieldsWrap>
+              <FieldsWrap>Date </FieldsWrap>
               <Typography>{event.date}</Typography>
-              <FieldsWrap>Description: </FieldsWrap>
+              <FieldsWrap>Description </FieldsWrap>
               <Typography>{event.description}</Typography>
+              <FieldsWrap>Attendees </FieldsWrap>
+              <Typography>{event.userlist}</Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" onClick={handleAddMember}>
-                Join Event
-              </Button>
+              {canJoin && (
+                <Button size="small" onClick={handleAddMember}>
+                  Join Event
+                </Button>
+              )}
               <Modal
                 open={open}
                 onClose={handleClose}

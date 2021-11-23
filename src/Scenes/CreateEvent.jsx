@@ -6,6 +6,7 @@ import { Box, Typography, Modal } from "@mui/material";
 import NavbarCreate from "../components/common/navbars/NavbarCreate";
 import { UserContext } from "../context/UserContext";
 import { getIdToken } from "@firebase/auth";
+import { CreateContainer, CreateWrap } from "./SingleCss";
 
 const style = {
   position: "absolute",
@@ -46,88 +47,94 @@ const CreateEvent = () => {
   return (
     <>
       <NavbarCreate />
-      <div>
-        <form onSubmit={handleForm}>
-          <TextField
-            style={{ display: "flex", flexDirection: "column", width: 220 }}
-            id="outlined-basic"
-            label="Name of Event"
-            variant="outlined"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          &nbsp;
-          <TextField
-            style={{ display: "flex", flexDirection: "column", width: 220 }}
-            id="outlined-basic"
-            label="Sport"
-            variant="outlined"
-            value={sport}
-            onChange={(e) => setSport(e.target.value)}
-          />
-          &nbsp; <br />
-          <TextField
-            style={{ display: "flex", flexDirection: "column", width: 220 }}
-            id="outlined-basic"
-            label="Number of Players"
-            variant="outlined"
-            value={capacity}
-            onChange={(e) => setCapacity(e.target.value)}
-          />
-          &nbsp;
-          <TextField
-            style={{ display: "flex", flexDirection: "column", width: 220 }}
-            id="outlined-basic"
-            label="Location"
-            variant="outlined"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          &nbsp; <br />
-          <TextField
-            style={{ display: "flex", flexDirection: "column", width: 220 }}
-            type="date"
-            id="outlined-basic"
-            variant="outlined"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-          &nbsp;
-          <TextField
-            style={{ display: "flex", flexDirection: "column", width: 220 }}
-            id="outlined-basic"
-            label="Description"
-            variant="outlined"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          &nbsp; <br />
-          <Button variant="contained" onClick={handleForm}>
-            Create Event
-          </Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title" variant="body1" component="h2">
-                Event Created!
-              </Typography>
-              <Button
-                color="primary"
-                variant="contained"
-                style={{ color: "white" }}
-                onClick={() => navigate(`/eventList`)}
-              >
-                Go Back to Events
-              </Button>
-            </Box>
-          </Modal>
-        </form>
-      </div>
+      <CreateContainer>
+        <CreateWrap>
+          <form onSubmit={handleForm}>
+            <TextField
+              style={{ display: "flex", flexDirection: "column", width: 220 }}
+              id="outlined-basic"
+              label="Name of Event"
+              variant="outlined"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            &nbsp;
+            <TextField
+              style={{ display: "flex", flexDirection: "column", width: 220 }}
+              id="outlined-basic"
+              label="Sport"
+              variant="outlined"
+              value={sport}
+              onChange={(e) => setSport(e.target.value)}
+            />
+            &nbsp; <br />
+            <TextField
+              style={{ display: "flex", flexDirection: "column", width: 220 }}
+              id="outlined-basic"
+              label="Number of Players"
+              variant="outlined"
+              value={capacity}
+              onChange={(e) => setCapacity(e.target.value)}
+            />
+            &nbsp;
+            <TextField
+              style={{ display: "flex", flexDirection: "column", width: 220 }}
+              id="outlined-basic"
+              label="Location"
+              variant="outlined"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            &nbsp; <br />
+            <TextField
+              style={{ display: "flex", flexDirection: "column", width: 220 }}
+              type="date"
+              id="outlined-basic"
+              variant="outlined"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+            &nbsp;
+            <TextField
+              style={{ display: "flex", flexDirection: "column", width: 220 }}
+              id="outlined-basic"
+              label="Description"
+              variant="outlined"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            &nbsp; <br />
+            <Button variant="contained" onClick={handleForm}>
+              Create Event
+            </Button>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Typography
+                  id="modal-modal-title"
+                  variant="body1"
+                  component="h2"
+                >
+                  Event Created!
+                </Typography>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  style={{ color: "white" }}
+                  onClick={() => navigate(`/eventList`)}
+                >
+                  Go Back to Events
+                </Button>
+              </Box>
+            </Modal>
+          </form>
+        </CreateWrap>
+      </CreateContainer>
     </>
   );
 };
