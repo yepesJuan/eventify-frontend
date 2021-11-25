@@ -3,11 +3,19 @@ import { useNavigate } from "react-router";
 import { getAllEvents } from "../Service/eventServices";
 import NavbarList from "../components/common/navbars/NavbarList";
 import Footer from "../components/common/Footer";
-import { CardActions, CardContent, Card } from "@mui/material/";
-import { Typography, Button, Grid } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
 import { SingleContainer, ListWrap } from "./SingleCss";
-import CardMedia from "@mui/material/CardMedia";
+import {
+  Typography,
+  Button,
+  Grid,
+  Box,
+  LinearProgress,
+  CardMedia,
+  CardActions,
+  CardContent,
+  Card,
+} from "@mui/material";
 
 export default function EventList() {
   const [events, setEvents] = useState([]);
@@ -47,7 +55,9 @@ export default function EventList() {
             padding="1px"
           >
             {!events.length ? (
-              <h2>Event List!!</h2>
+              <Box sx={{ width: "100%" }}>
+                <LinearProgress />
+              </Box>
             ) : (
               events.map((item) => {
                 return (

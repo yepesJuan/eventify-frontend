@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/common/navbars/Navbar";
 import Hero from "../components/Home/Hero";
-import Footer from "../components/common/Footer";
+import FooterHome from "../components/common/FooterHome";
 import Sidebar from "../components/common/navbars/Sidebar";
 import Main from "../components/Home/Main";
 import { homeObjectOne, homeObjectTwo } from "../components/Home/MainData";
@@ -19,7 +19,7 @@ export default function Home() {
       <Hero />
       <Main {...homeObjectOne} />
       <Main {...homeObjectTwo} />
-      <Footer />
+      <FooterHome />
     </>
   );
 }

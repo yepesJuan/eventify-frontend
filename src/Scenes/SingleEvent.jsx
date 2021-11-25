@@ -1,17 +1,23 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router";
 import { addMember, getEvent } from "../Service/eventServices";
-import NavbarEventInfo from "../components/common/navbars/NavbarEventInfo";
-import Footer from "../components/common/Footer";
-import { CardActions, CardContent, Card } from "@mui/material/";
-import { Typography, Button, Modal, Box } from "@mui/material";
-import GroupsIcon from "@mui/icons-material/Groups";
 import { getIdToken } from "@firebase/auth";
 import { UserContext } from "../context/UserContext";
+import NavbarEventInfo from "../components/common/navbars/NavbarEventInfo";
+import Footer from "../components/common/Footer";
 import { FieldsWrap, SingleContainer, SingleWrap } from "./SingleCss";
-import { Btn } from "../components/common/ButtonCss";
-
+import {
+  CardActions,
+  CardContent,
+  Typography,
+  Button,
+  Card,
+  Modal,
+  Box,
+} from "@mui/material/";
+import GroupsIcon from "@mui/icons-material/Groups";
 // import CardMedia from "@mui/material/CardMedia";
+
 const style = {
   position: "absolute",
   top: "50%",
