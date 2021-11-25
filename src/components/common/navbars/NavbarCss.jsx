@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   background: #000;
   width: initial;
   height: 80px;
-  margin-top: -15px;
+  margin-top: -17px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@ export const NavLogo = styled(LinkRouter)`
   align-items: center;
   color: #fff;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
@@ -84,7 +84,7 @@ export const NavLinks = styled(LinkScroll)`
   height: 100%;
   cursor: pointer;
 
-  &:active {
+  &:hover {
     border-bottom: 3px solid #145ff5;
   }
 `;

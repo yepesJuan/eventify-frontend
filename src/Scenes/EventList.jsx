@@ -7,10 +7,11 @@ import { CardActions, CardContent, Card } from "@mui/material/";
 import { Typography, Button, Grid } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
 import { SingleContainer, ListWrap } from "./SingleCss";
-// import CardMedia from "@mui/material/CardMedia";
+import CardMedia from "@mui/material/CardMedia";
 
 export default function EventList() {
   const [events, setEvents] = useState([]);
+  const [image, setImage] = useState();
   const navigate = useNavigate();
   useEffect(() => {
     getAllEvents().then((ret) => setEvents(ret));
@@ -18,6 +19,19 @@ export default function EventList() {
     //   cleanup
     // }
   }, []);
+
+  useEffect(() => {
+    switch (events.sport) {
+      case "Soccer":
+        setImage("images/basketball.svg");
+        break;
+      case "Tennis":
+        setImage("images/tennis.svg");
+        break;
+      default:
+        setImage("images/tennis.svg");
+    }
+  }, [events]);
 
   return (
     <>
@@ -39,12 +53,12 @@ export default function EventList() {
                 return (
                   <Grid item xs={12} sm={6} md={3} key={item._id}>
                     <Card>
-                      {/* <CardMedia
-                // component="img"
-                // height="140"
-                // image="/static/images/cards/contemplative-reptile.jpg"
-                // alt="green iguana"
-                /> */}
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        src={image}
+                        alt="green iguana"
+                      />
                       <CardContent>
                         <Typography style={{ fontSize: 19, fontWeight: "600" }}>
                           {item.name}

@@ -2,7 +2,24 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.footer`
-  background-color: #040a49;
+  background: hsla(0, 0%, 0%, 1);
+
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(227, 100%, 49%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(227, 100%, 49%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(227, 100%, 49%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#145ff5", endColorstr="#000", GradientType=1 );
 `;
 export const FooterWrap = styled.div`
   padding: 46px 24px;

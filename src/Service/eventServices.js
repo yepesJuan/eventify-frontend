@@ -26,6 +26,7 @@ export const createEvent = async (data, jwt) => {
 
 export const addMember = async (eventId, jwt) => {
   const result = await axios.post(
+    // `http://localhost:5000/events/addmember/${eventId}`,
     `https://eventify-rest.ue.r.appspot.com/events/addmember/${eventId}`,
     {},
     {

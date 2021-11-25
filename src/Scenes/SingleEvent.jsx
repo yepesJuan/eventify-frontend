@@ -9,6 +9,7 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import { getIdToken } from "@firebase/auth";
 import { UserContext } from "../context/UserContext";
 import { FieldsWrap, SingleContainer, SingleWrap } from "./SingleCss";
+import { Btn } from "../components/common/ButtonCss";
 
 // import CardMedia from "@mui/material/CardMedia";
 const style = {
@@ -21,11 +22,11 @@ const style = {
   border: "3px solid #145ff5",
   boxShadow: 24,
   p: 4,
+  textAlign: "center",
 };
 
 export default function SingleEvent() {
   const [event, setEvent] = useState([]);
-  const [spots, setSpots] = useState(0);
   const [canJoin, setCanJoin] = useState(false);
   const { eventId } = useParams();
   const [open, setOpen] = useState(false);
@@ -64,7 +65,10 @@ export default function SingleEvent() {
       <NavbarEventInfo />
       <SingleContainer>
         <SingleWrap>
-          <Card style={{ width: "420px", height: "450px" }} key={event._id}>
+          <Card
+            style={{ width: "420px", height: "600px", borderRadius: "20px" }}
+            key={event._id}
+          >
             {/* <CardMedia
                 // component="img"
                 // height="140"
@@ -93,12 +97,21 @@ export default function SingleEvent() {
               <Typography>{event.date}</Typography>
               <FieldsWrap>Description </FieldsWrap>
               <Typography>{event.description}</Typography>
-              <FieldsWrap>Attendees </FieldsWrap>
-              <Typography>{event.userlist}</Typography>
+              <FieldsWrap>Attendees111 </FieldsWrap>
+
+              <ul>
+                {event &&
+                  event.userlist &&
+                  event.userlist.map((name) => (
+                    <li style={{ listStyle: "none" }} key={name}>
+                      {name}
+                    </li>
+                  ))}
+              </ul>
             </CardContent>
             <CardActions>
               {canJoin && (
-                <Button size="small" onClick={handleAddMember}>
+                <Button size="medium" onClick={handleAddMember}>
                   Join Event
                 </Button>
               )}
@@ -113,8 +126,9 @@ export default function SingleEvent() {
                     id="modal-modal-title"
                     variant="body1"
                     component="h2"
+                    style={{ textAlign: "center", marginBottom: "10px" }}
                   >
-                    Event Created!
+                    You've Joined the Event
                   </Typography>
                   <Button
                     color="primary"
@@ -122,7 +136,7 @@ export default function SingleEvent() {
                     style={{ color: "white" }}
                     onClick={() => navigate(`/eventList`)}
                   >
-                    Go Back to Events
+                    Go Back to Events List!
                   </Button>
                 </Box>
               </Modal>

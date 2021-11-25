@@ -27,10 +27,10 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1>Events Made Easy</HeroH1>
-        <HeroP>Sign up today to create or join an event!</HeroP>
+        <HeroP>See all the events happening right now!</HeroP>
         <HeroBtnWrapper>
           <Btn
-            onClick={() => navigate("/eventlist")}
+            onClick={() => navigate("/login")}
             onMouseEnter={onHover}
             onMouseLeave={onHover}
           >

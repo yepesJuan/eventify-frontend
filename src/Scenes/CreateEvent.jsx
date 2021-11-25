@@ -4,6 +4,8 @@ import { createEvent } from "../Service/eventServices";
 import { TextField, Button } from "@mui/material";
 import { Box, Typography, Modal } from "@mui/material";
 import NavbarCreate from "../components/common/navbars/NavbarCreate";
+import Footer from "../components/common/Footer";
+import Sidebar from "../components/common/navbars/Sidebar";
 import { UserContext } from "../context/UserContext";
 import { getIdToken } from "@firebase/auth";
 import { CreateContainer, CreateWrap } from "./SingleCss";
@@ -32,6 +34,7 @@ const CreateEvent = () => {
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isOpen, setIsOPen] = useState(false);
   // const [data, setData] = useState({});
 
   const handleForm = async (e) => {
@@ -42,11 +45,16 @@ const CreateEvent = () => {
     handleOpen();
   };
 
+  const toggle = () => {
+    setIsOPen(!isOpen);
+  };
+
   // const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
   return (
     <>
       <NavbarCreate />
+      <Sidebar isOpen={isOpen} toggle={toggle} />
       <CreateContainer>
         <CreateWrap>
           <form onSubmit={handleForm}>
@@ -135,6 +143,7 @@ const CreateEvent = () => {
           </form>
         </CreateWrap>
       </CreateContainer>
+      <Footer />
     </>
   );
 };

@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
 export const MainWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 800px;
+  height: 810px;
   width: 1100px;
   margin-right: auto;
   margin-left: auto;
