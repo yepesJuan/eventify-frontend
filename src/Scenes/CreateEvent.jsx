@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { createEvent } from "../Service/eventServices";
 import { TextField, Button } from "@mui/material";
-import { Box, Typography, Modal } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import NavbarCreate from "../components/common/navbars/NavbarCreate";
 import Footer from "../components/common/Footer";
 import Sidebar from "../components/common/navbars/Sidebar";
@@ -15,7 +15,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 375,
+  width: 350,
   bgcolor: "background.paper",
   border: "3px solid #145ff5",
   boxShadow: 24,
@@ -73,6 +73,7 @@ const CreateEvent = () => {
               id="outlined-basic"
               label="Sport"
               variant="outlined"
+              required="true"
               value={sport}
               onChange={(e) => setSport(e.target.value)}
             />
@@ -82,6 +83,7 @@ const CreateEvent = () => {
               id="outlined-basic"
               label="Number of Players"
               variant="outlined"
+              required="true"
               value={capacity}
               onChange={(e) => setCapacity(e.target.value)}
             />
@@ -92,6 +94,7 @@ const CreateEvent = () => {
               label="Location"
               variant="outlined"
               value={address}
+              required="true"
               onChange={(e) => setAddress(e.target.value)}
             />
             &nbsp; <br />
@@ -100,6 +103,7 @@ const CreateEvent = () => {
               type="date"
               id="outlined-basic"
               variant="outlined"
+              required="true"
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
@@ -123,21 +127,19 @@ const CreateEvent = () => {
               aria-describedby="modal-modal-description"
             >
               <Box sx={style}>
-                <Typography
-                  id="modal-modal-title"
-                  variant="body1"
-                  component="h2"
-                >
-                  Event Created!
-                </Typography>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  style={{ color: "white" }}
-                  onClick={() => navigate(`/eventList`)}
-                >
-                  Go Back to Events
-                </Button>
+                <div style={{ display: "flex", alignContent: "center" }}>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    style={{
+                      color: "white",
+                      marginLeft: "50px",
+                    }}
+                    onClick={() => navigate(`/eventList`)}
+                  >
+                    Event Created!
+                  </Button>
+                </div>
               </Box>
             </Modal>
           </form>

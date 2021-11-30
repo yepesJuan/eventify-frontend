@@ -26,20 +26,22 @@ export const SingleWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 1100px;
-  height: 800px;
+  height: 665px;
   margin: 0 auto;
 `;
 
 export const ListWrap = styled.div`
   display: flex;
+  align-content: flex-start;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   max-width: 1100px;
-  height: 800px;
+  /* height: 700px; */
   margin: 0 auto;
   overflow: hidden;
   margin-top: 5px;
-  padding-top: 20px;
+  padding-top: 100px;
+  padding-bottom: 260px;
 `;
 
 export const FieldsWrap = styled.span`
@@ -54,7 +56,7 @@ export const CreateContainer = styled.footer`
   /* background-color: #145ff5; */
   height: 750px;
   margin-top: 15px;
-  padding-top: 80px;
+  padding-top: 50px;
   z-index: 1;
 
   background: hsla(0, 0%, 0%, 1);

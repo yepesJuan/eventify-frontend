@@ -42,20 +42,21 @@ export default function SingleEvent() {
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getIdToken(user)
       .then((jwt) => getEvent(eventId, jwt))
       .then(setEvent);
-    // return () => {
-    //   cleanup
-    // }
+    return () => {
+      setEvent();
+    };
   }, [eventId, user]);
 
   useEffect(() => {
     const _canJoin =
       event &&
       user &&
-      user.uid &&
-      (!event.userlist || !event.userlist.includes(user.uid));
+      user.displayName &&
+      (!event.userlist || !event.userlist.includes(user.displayName));
     console.log({ _canJoin, event, user });
     setCanJoin(_canJoin);
   }, [event, user]);
@@ -65,25 +66,20 @@ export default function SingleEvent() {
     await addMember(eventId, jwt);
     handleOpen();
   };
-
   return (
     <>
       <NavbarEventInfo />
       <SingleContainer>
         <SingleWrap>
           <Card
-            style={{ width: "420px", height: "600px", borderRadius: "20px" }}
+            style={{ width: "450px", borderRadius: "20px" }}
             key={event._id}
           >
-            {/* <CardMedia
-                // component="img"
-                // height="140"
-                // image="/static/images/cards/contemplative-reptile.jpg"
-                // alt="green iguana"
-                /> */}
             <CardContent>
-              <h2 style={{ padding: "8px 60px" }}>{event.name}</h2>
-              <FieldsWrap>Sport </FieldsWrap>
+              <h2 style={{ display: "flex", justifyContent: "center" }}>
+                {event.name}
+              </h2>
+              <FieldsWrap>Sport! </FieldsWrap>
               <Typography>{event.sport}</Typography>
               <FieldsWrap>Capacity </FieldsWrap>
               <Typography style={{ display: "flex" }}>
@@ -103,8 +99,7 @@ export default function SingleEvent() {
               <Typography>{event.date}</Typography>
               <FieldsWrap>Description </FieldsWrap>
               <Typography>{event.description}</Typography>
-              <FieldsWrap>Attendees111 </FieldsWrap>
-
+              <FieldsWrap>Attendees </FieldsWrap>
               <ul>
                 {event &&
                   event.userlist &&
@@ -117,7 +112,11 @@ export default function SingleEvent() {
             </CardContent>
             <CardActions>
               {canJoin && (
-                <Button size="medium" onClick={handleAddMember}>
+                <Button
+                  style={{ fontWeight: "500" }}
+                  size="large"
+                  onClick={handleAddMember}
+                >
                   Join Event
                 </Button>
               )}
@@ -128,21 +127,13 @@ export default function SingleEvent() {
                 aria-describedby="modal-modal-description"
               >
                 <Box sx={style}>
-                  <Typography
-                    id="modal-modal-title"
-                    variant="body1"
-                    component="h2"
-                    style={{ textAlign: "center", marginBottom: "10px" }}
-                  >
-                    You've Joined the Event
-                  </Typography>
                   <Button
                     color="primary"
                     variant="contained"
                     style={{ color: "white" }}
                     onClick={() => navigate(`/eventList`)}
                   >
-                    Go Back to Events List!
+                    Event Joined!
                   </Button>
                 </Box>
               </Modal>

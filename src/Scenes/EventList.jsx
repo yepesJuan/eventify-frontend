@@ -22,24 +22,30 @@ export default function EventList() {
   const [image, setImage] = useState();
   const navigate = useNavigate();
   useEffect(() => {
+    window.scrollTo(0, 0);
     getAllEvents().then((ret) => setEvents(ret));
+    setImage(
+      "https://image.shutterstock.com/image-illustration/all-sports-balls-stadium-3d-260nw-474916249.jpg"
+    );
     // return () => {
     //   cleanup
     // }
   }, []);
 
-  useEffect(() => {
-    switch (events.sport) {
-      case "Soccer":
-        setImage("images/basketball.svg");
-        break;
-      case "Tennis":
-        setImage("images/tennis.svg");
-        break;
-      default:
-        setImage("images/tennis.svg");
-    }
-  }, [events]);
+  // useEffect(() => {
+  //   switch (events.sport) {
+  //     case "Soccer":
+  //       setImage("images/basketball.svg");
+  //       break;
+  //     case "Tennis":
+  //       setImage("images/tennis.svg");
+  //       break;
+  //     default:
+  //       setImage(
+  //         "https://image.shutterstock.com/image-illustration/all-sports-balls-stadium-3d-260nw-474916249.jpg"
+  //       );
+  //   }
+  // }, [events]);
 
   return (
     <>
@@ -85,7 +91,9 @@ export default function EventList() {
                       </CardContent>
                       <CardActions>
                         <Button
-                          size="small"
+                          size="large"
+                          style={{ fontWeight: "500" }}
+                          // variant="contained"
                           onClick={() => navigate(`/eventList/${item._id}`)}
                         >
                           More Info
