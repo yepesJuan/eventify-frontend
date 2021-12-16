@@ -11,3 +11,4 @@ import axios from "axios";
 
 //   return axios.create({ headers, baseURL: "http://localhost:5000" });
 // };
+// Refactoring jwt for eventServices.js

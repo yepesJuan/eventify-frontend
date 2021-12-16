@@ -27,25 +27,7 @@ export default function EventList() {
     setImage(
       "https://image.shutterstock.com/image-illustration/all-sports-balls-stadium-3d-260nw-474916249.jpg"
     );
-    // return () => {
-    //   cleanup
-    // }
   }, []);
-
-  // useEffect(() => {
-  //   switch (events.sport) {
-  //     case "Soccer":
-  //       setImage("images/basketball.svg");
-  //       break;
-  //     case "Tennis":
-  //       setImage("images/tennis.svg");
-  //       break;
-  //     default:
-  //       setImage(
-  //         "https://image.shutterstock.com/image-illustration/all-sports-balls-stadium-3d-260nw-474916249.jpg"
-  //       );
-  //   }
-  // }, [events]);
 
   return (
     <>
@@ -93,7 +75,6 @@ export default function EventList() {
                         <Button
                           size="large"
                           style={{ fontWeight: "500" }}
-                          // variant="contained"
                           onClick={() => navigate(`/eventList/${item._id}`)}
                         >
                           More Info
@@ -106,14 +87,6 @@ export default function EventList() {
             )}
           </Grid>
         </ListWrap>
-        {/* <span style={{ flexDirection: "row-reverse" }}>
-          <Pagination
-            count={6}
-            defaultPage={1}
-            siblingCount={0}
-            color="primary"
-          />
-        </span> */}
       </SingleContainer>
       <Footer />
     </>

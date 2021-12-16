@@ -8,7 +8,6 @@ import { homeObjectOne, homeObjectTwo } from "../components/Home/MainData";
 
 export default function Home() {
   const [isOpen, setIsOPen] = useState(false);
-
   const toggle = () => {
     setIsOPen(!isOpen);
   };

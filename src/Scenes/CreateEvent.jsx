@@ -35,7 +35,6 @@ const CreateEvent = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [isOpen, setIsOPen] = useState(false);
-  // const [data, setData] = useState({});
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -44,12 +43,9 @@ const CreateEvent = () => {
     );
     handleOpen();
   };
-
   const toggle = () => {
     setIsOPen(!isOpen);
   };
-
-  // const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
   return (
     <>

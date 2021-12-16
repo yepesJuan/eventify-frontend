@@ -11,6 +11,7 @@ import { Login } from "../src/Scenes/Login";
 import { AnonRoute } from "./Service/AnonRoute";
 import { AuthRoute } from "./Service/AuthRoute";
 
+// google auth
 const firebaseConfig = {
   apiKey: "AIzaSyBs7qTfZGX67qR8d367EylcrqznFQfx8v8",
   authDomain: "eventify-ui.firebaseapp.com",
