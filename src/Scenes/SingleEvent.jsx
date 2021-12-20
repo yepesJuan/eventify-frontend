@@ -16,7 +16,6 @@ import {
   Box,
 } from "@mui/material/";
 import GroupsIcon from "@mui/icons-material/Groups";
-// import CardMedia from "@mui/material/CardMedia";
 
 const style = {
   position: "absolute",
@@ -57,7 +56,6 @@ export default function SingleEvent() {
       user &&
       user.displayName &&
       (!event.userlist || !event.userlist.includes(user.displayName));
-    console.log({ _canJoin, event, user });
     setCanJoin(_canJoin);
   }, [event, user]);
 
